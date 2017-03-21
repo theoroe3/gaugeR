@@ -18,7 +18,7 @@ gauge <- function(value, width = NULL, height = NULL) {
     x,
     width = width,
     height = height,
-    package = 'guageR'
+    package = 'gaugeR'
   )
 }
 
