@@ -22,7 +22,7 @@ HTMLWidgets.widget({
               min: 0,
               max: 100,
               width: 15,
-              units: 'value'
+              units: '%'
             }
           });
           el.chart = chart;
