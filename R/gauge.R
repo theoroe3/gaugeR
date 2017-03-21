@@ -40,7 +40,7 @@ gauge <- function(value, width = NULL, height = NULL) {
 #'
 #' @export
 gaugeOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'gauge', width, height, package = 'guageR')
+  htmlwidgets::shinyWidgetOutput(outputId, 'gauge', width, height, package = 'gaugeR')
 }
 
 #' @rdname gauge-shiny

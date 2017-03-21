@@ -15,7 +15,7 @@ HTMLWidgets.widget({
               type: 'gauge',
               onclick: function(d, element) { Shiny.onInputChange(el.id,d) }
             },
-            guage: {
+            gauge: {
               label:{
                 format: function(value,ratio){ return value;}
               },
