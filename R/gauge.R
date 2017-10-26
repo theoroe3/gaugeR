@@ -1,10 +1,19 @@
-#' <Add Title>
+#' @title Create elegents interactive gauge illustrations
 #'
-#' <Add Description>
+#' @description An easy way to create gauge charts based on the rstudio
+#' js tutorials with functions for easy implementation in shiny
 #'
 #' @import htmlwidgets
-#'
+#' @param value A numeric between 0 and 100. Represents a percentage.
+#' @param width The width of the html widget
+#' @param height The width of the html widget
 #' @export
+#' @examples
+#' gauge(0)
+#'
+#' gauge(50)
+#'
+#' gauge(c(3,3))
 gauge <- function(value, width = NULL, height = NULL) {
 
   # forward options using x
@@ -39,6 +48,34 @@ gauge <- function(value, width = NULL, height = NULL) {
 #' @name gauge-shiny
 #'
 #' @export
+#' @examples
+#' ## Only run this in interactive sessions
+#' if(interactive()){
+#'   ui <- fluidPage(
+#'     titlePanel("Gauge Example!"),
+#'     sidebarLayout(
+#'       sidebarPanel(
+#'         sliderInput("obs",
+#'                     "Pick a percentage",
+#'                     min = 1,
+#'                     max = 100,
+#'                     value = 5)
+#'       ),
+#'       mainPanel(
+#'         gaugeOutput("gaugePlot")
+#'       )
+#'     )
+#'   )
+#'   server <- function(input, output) {
+#'
+#'     output$gaugePlot <- renderGauge({
+#'       gauge(input$obs)
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui = ui, server = server)
+#' }
 gaugeOutput <- function(outputId, width = '100%', height = '400px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'gauge', width, height, package = 'gaugeR')
 }

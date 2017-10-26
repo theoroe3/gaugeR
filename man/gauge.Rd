@@ -2,10 +2,25 @@
 % Please edit documentation in R/gauge.R
 \name{gauge}
 \alias{gauge}
-\title{<Add Title>}
+\title{Create elegents interactive gauge illustrations}
 \usage{
 gauge(value, width = NULL, height = NULL)
 }
+\arguments{
+\item{value}{A numeric between 0 and 100. Represents a percentage.}
+
+\item{width}{The width of the html widget}
+
+\item{height}{The width of the html widget}
+}
 \description{
-<Add Description>
+An easy way to create gauge charts based on the rstudio
+js tutorials with functions for easy implementation in shiny
+}
+\examples{
+gauge(0)
+
+gauge(50)
+
+gauge(c(3,3))
 }

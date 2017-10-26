@@ -1,56 +1,54 @@
+---
+always_allow_html: yes
+output:
+  md_document:
+    variant: markdown_github
+editor_options: 
+  chunk_output_type: console
+---
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-gaugeR
-======
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# gaugeR
 
 A function to create interactive gauge charts as well as output and render functions for using gauge within Shiny applications and interactive Rmd documents.
 
-Installation
-------------
+## Installation
 
-    #> Loading required package: htmlwidgets
+```{r, echo = FALSE}
+library(gaugeR)
+```
 
 You can install gaugeR from github with:
 
-``` r
+```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("jumpingrivers/gaugeR")
 ```
 
-Example
--------
+## Example
 
 This are some basic examples of the command `gauge()`:
 
-``` r
+```{r example}
 gauge(0)
-```
-
-<!--html_preserve-->
-
-<script type="application/json" data-for="htmlwidget-94866ee26c2b8569ba9a">{"x":{"data":0},"evals":[],"jsHooks":[]}</script>
-<!--/html_preserve-->
-``` r
 gauge(50)
-```
-
-<!--html_preserve-->
-
-<script type="application/json" data-for="htmlwidget-0b6b489d1ca05be95eba">{"x":{"data":50},"evals":[],"jsHooks":[]}</script>
-<!--/html_preserve-->
-``` r
 gauge(c(3,3))
 ```
 
-<!--html_preserve-->
-
-<script type="application/json" data-for="htmlwidget-63fa6e826df6c5375e0f">{"x":{"data":[3,3]},"evals":[],"jsHooks":[]}</script>
-<!--/html_preserve-->
-Shiny Example
--------------
+## Shiny Example
 
 Here is a very basic shiny app example
 
-``` r
+```{r, eval = FALSE}
 ## Only run this in interactive sessions
 if(interactive()){
   ui <- fluidPage(

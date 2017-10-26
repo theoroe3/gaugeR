@@ -28,3 +28,32 @@ is useful if you want to save an expression in a variable.}
 Output and render functions for using gauge within Shiny
 applications and interactive Rmd documents.
 }
+\examples{
+## Only run this in interactive sessions
+if(interactive()){
+  ui <- fluidPage(
+    titlePanel("Gauge Example!"),
+    sidebarLayout(
+      sidebarPanel(
+        sliderInput("obs",
+                    "Pick a percentage",
+                    min = 1,
+                    max = 100,
+                    value = 5)
+      ),
+      mainPanel(
+        gaugeOutput("gaugePlot")
+      )
+    )
+  )
+  server <- function(input, output) {
+
+    output$gaugePlot <- renderGauge({
+      gauge(input$obs)
+    })
+
+  }
+
+  shinyApp(ui = ui, server = server)
+}
+}
